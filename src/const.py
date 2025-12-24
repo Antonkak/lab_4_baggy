@@ -1,0 +1,3 @@
+TITLES = ["The Silent Forest", "Echoes of Tomorrow", "Beneath Crimson Skies","Whispers in the Dark", "Chronicles of the Lost", "Shadows of Memory","The Last Ember", "Rivers of Starlight", "Dreams Unwritten"]
+AUTHORS = ["A. Tolkien", "M. Orwell", "J. Austen", "F. Kafka", "G. Orwell","L. Baum", "H. Lovecraft", "C. Dickens", "V. Hugo"]
+GENRES = ["Fantasy", "Dystopia", "Romance", "Horror", "Classic", "Adventure"]
