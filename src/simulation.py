@@ -7,16 +7,16 @@ from .const import TITLES, AUTHORS, GENRES
 
 def generate_random_book() -> Book:
     title = random.choice(TITLES)
-    author = random.choice(AUTHORS)
+    author = AUTHORS[1]
     year = random.randint(1800, 2024)
     genre = random.choice(GENRES)
-    isbn = "".join(str(random.randint(0, 9)) for _ in range(13))
+    isbn = "".join(str(random.randint(0, 9)) for _ in range(12))
     if random.choice([True, False]):
         pages = random.randint(50, 1000)
-        return PrBook(title, author, year, genre, isbn, pages)
+        return PrBook(title, year, author, genre, isbn, pages)
     else:
         fmt = random.choice(["pdf", "epub", "mobi"])
-        return Manga(title, author, year, genre, isbn, fmt)
+        return Manga(title, year, author, genre, isbn, fmt)
 
 def format_books(books: list[Book]) -> str:
     if not books:
@@ -41,10 +41,7 @@ def run_simulation(steps: int = 20, seed: int | None = None) -> None:
     for step in range(1, steps + 1):
         events = []
         events.append("add")
-        if len(library.books) > 0:
-            events.append("remove")
-        events.extend(["search_author", "search_year", "search_fake_isbn"])
-        event = random.choice(events)
+        event = "add"
 
         if event == "add":
             book = generate_random_book()
@@ -54,12 +51,6 @@ def run_simulation(steps: int = 20, seed: int | None = None) -> None:
             library.add_book(book)
             log(f"Step {step}  Added book: {book}")
 
-        elif event == "remove":
-            book_to_remove = random.choice(list(library.books))
-            isbn = book_to_remove.isbn
-            removed = library.remove_book(isbn)
-            all_isbns.discard(isbn)
-            log(f"Step {step}  Removed book: {removed}")
 
         elif event == "search_author":
             author = random.choice(AUTHORS)

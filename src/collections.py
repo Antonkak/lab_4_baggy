@@ -6,7 +6,7 @@ class BookCollection:
         self.books: list[Book] = []
 
     def add(self, book: Book) -> None:
-        if any(b.isbn == book.isbn for b in self.books):
+        if any(b.isbn is book.isbn for b in self.books):
             raise ValueError(f"Book with ISBN {book.isbn} already exists")
         self.books.append(book)
 

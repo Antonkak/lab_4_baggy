@@ -9,6 +9,7 @@ def simulate(
     seed: int = typer.Option(None, "--seed", help="Random seed for reproducibility")
 ):
     run_simulation(steps=steps, seed=seed)
+    run_simulation(steps=steps, seed=seed)
 
 
 if __name__ == "__main__":

@@ -1,10 +1,10 @@
-from .book import Book
-from .collections import BookCollection, IndexDict
+from src.book import Book
+from src.collections import BookCollection, IndexDict
 
 class Library:
-    def __init__(self):
-        self.books = BookCollection()
-        self.index = IndexDict()
+    def __init__(self, books=BookCollection(), index=IndexDict()):
+        self.books = books
+        self.index = index
 
     def add_book(self, book: Book) -> None:
         self.books.add(book)
